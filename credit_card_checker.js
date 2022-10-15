@@ -24,7 +24,7 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 
 // Add your functions below:
-const validateCred = (card) => {
+const validateCred = (card) => { // Validate credit card numbers accoring to Luhn's algorithm
     let validated = [];
     for (let i = card.length-1; i >= 0; i--) {
         if ((card.length-1-i) % 2 === 1) {
@@ -102,7 +102,7 @@ const stringToArray = (string) => { // project extension
 };
 
 // Test function
-console.log(stringToArray('6784330011268422'));
+console.log(stringToArray('6784330011268422')); // Should return array of numbers
 
 const convertInvalid = (card) => { // project extension
     let validated = [];
@@ -133,12 +133,12 @@ const convertInvalid = (card) => { // project extension
     return card;
 };
 
-// Test function
-console.log(validateCred(convertInvalid(invalid1)));
-console.log(validateCred(convertInvalid(invalid2)));
-console.log(validateCred(convertInvalid(invalid3)));
-console.log(validateCred(convertInvalid(invalid4)));
-console.log(validateCred(convertInvalid(invalid5)));
-console.log(validateCred(convertInvalid(mystery1)));
-console.log(validateCred(convertInvalid(mystery3)));
-console.log(validateCred(convertInvalid(mystery4)));
+// Test functions:
+console.log(validateCred(convertInvalid(invalid1))); // Should print true
+console.log(validateCred(convertInvalid(invalid2))); // Should print true
+console.log(validateCred(convertInvalid(invalid3))); // Should print true
+console.log(validateCred(convertInvalid(invalid4))); // Should print true
+console.log(validateCred(convertInvalid(invalid5))); // Should print true
+console.log(validateCred(convertInvalid(mystery1))); // Should print true
+console.log(validateCred(convertInvalid(mystery3))); // Should print true
+console.log(validateCred(convertInvalid(mystery4))); // Should print true
