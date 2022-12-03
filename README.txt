@@ -1,6 +1,14 @@
 Codecademy - Back End Engineer Projects
-- All project extensions were not guided and required research and backtesting
 
-1. Meal Maker with project extensions
-2. Credit Card Checker with project extensions
-3. Mysterious Organisms with project extensions
+Collection of projects sorted by Module, Challenge and Portfolio:
+- Module projects focuses on specific lessons e.g. Functions, Arrays, Objects, Classes (Guided with extension requirements)
+- Challenge projects usually consist of multiple modules combined (Less guided with extension requirements)
+- Portfolio projects (No solution provided, non-guided and require language documentation research)
+
+Module projects:
+1. Meal Maker | Objects
+2. Build A Library | Classes
+
+Challenge projects:
+2. Credit Card Checker
+3. Mysterious Organisms

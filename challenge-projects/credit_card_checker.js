@@ -24,7 +24,8 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 
 // Add your functions below:
-const validateCred = (card) => { // Validate credit card numbers accoring to Luhn's algorithm
+// Validate credit card numbers accoring to Luhn's algorithm
+const validateCred = (card) => {
     let validated = [];
     for (let i = card.length-1; i >= 0; i--) {
         if ((card.length-1-i) % 2 === 1) {
@@ -46,6 +47,7 @@ const validateCred = (card) => { // Validate credit card numbers accoring to Luh
 console.log(validateCred(valid1)); // Should print true
 console.log(validateCred(invalid1)); // Should print false
 
+// Find invalid cards and pushed into an array
 const findInvalidCards = (cards) => {
     let invalid = [];
     for (let card of cards) {
@@ -56,10 +58,11 @@ const findInvalidCards = (cards) => {
     return invalid;
 };
 
-// Test function
+// Test functions:
 console.log(findInvalidCards([valid1, valid2, valid3, valid4, valid5]));// Shouldn't print anything
-console.log(findInvalidCards([invalid1, invalid2, invalid3, invalid4, invalid5])); // Should print all of the numbers
+console.log(findInvalidCards([invalid1, invalid2, invalid3, invalid4, invalid5])); // Should print array of invalid cards
 
+// Returns the invalid card's company name
 const idInvalidCardCompanies = (invalidCards) => {
     let companies = [];
     for (let card of invalidCards) {
@@ -91,20 +94,22 @@ const idInvalidCardCompanies = (invalidCards) => {
     return companies;
 };
 
-// Test function
+// Test functions:
 console.log(idInvalidCardCompanies([invalid1])); // Should print['visa']
 console.log(idInvalidCardCompanies([invalid2])); // Should print ['mastercard']
 console.log(idInvalidCardCompanies(batch)); // Find out which companies have mailed out invalid cards
 
-const stringToArray = (string) => { // project extension
+// Converts string of numbers to an array | Project extension
+const stringToArray = (string) => {
     let numArr = string.split('').map(num => parseInt(num));
     return numArr;
 };
 
-// Test function
+// Test function:
 console.log(stringToArray('6784330011268422')); // Should return array of numbers
 
-const convertInvalid = (card) => { // project extension
+// Convert an invalid card into valid card | Project extension
+const convertInvalid = (card) => {
     let validated = [];
     for (let i = card.length-1; i >= 0; i--) {
         if ((card.length-1-i) % 2 === 1) {

@@ -27,7 +27,7 @@ const pAequorFactory = (specimenNum, dna) => {
       this.dna[idx] = newBase;
       return this.dna;
     },
-    compareDna(comparePaeq) { // Compares two instances of the DNA arrays to acertain if both are 60% in common
+    compareDna(comparePaeq) { // Compares two instances of the DNA arrays to ascertain percentage in common
       let commonBase = 0;
       for (let i=0; i < comparePaeq.dna.length; i++) {
         if (comparePaeq.dna[i] === this.dna[i]) {
@@ -37,11 +37,13 @@ const pAequorFactory = (specimenNum, dna) => {
       let baseInPertcentage = (commonBase / comparePaeq.dna.length * 100).toFixed();
       console.log(`Specimen #${comparePaeq.specimenNum} and specimen #${this.specimenNum} have ${baseInPertcentage}% DNA in common`);
     },
-    willLikelySurvive() { // project extension
+    // Find the DNA that will survive if it consists minimum 60% combination of both G and C strands | Project extension 
+    willLikelySurvive() {
       let survive = this.dna.filter(base => base === 'G' || base === 'C');
       return survive.length / this.dna.length >= 0.6      
     },
-    complimentStrand() { // Returns complement strands based on Chargaff's Rule | project extension
+    // Returns complement strands based on Chargaff's Rule | Project extension
+    complimentStrand() {
         let newStrand = [];
         this.dna.map(base => {
         switch (base) {
@@ -64,8 +66,8 @@ const pAequorFactory = (specimenNum, dna) => {
   }
 } 
 
-// To generate required amount of minimum 60% survival rate specimens
-const generateSpecimens = (num) => { // project extension
+// To generate required amount of minimum 60% survival rate specimens | Project extension
+const generateSpecimens = (num) => {
     let specCount = 1;
     const likelySurvive = [];
     while (likelySurvive.length < (num)) {
@@ -81,9 +83,13 @@ const generateSpecimens = (num) => { // project extension
 // Test functions:
 newPaeq1 = pAequorFactory(1, mockUpStrand()); // Comment this out for generateSpecimens to run
 newPaeq2 = pAequorFactory(2, mockUpStrand()); // Comment this out for generateSpecimens to run
+
 console.log(newPaeq1, newPaeq2); // Returns both instances of above paequor specimens for comaprison to below mutations & complement strands
 console.log(newPaeq1.mutate(), newPaeq2.mutate()); // Returns mutated specimens for above instances
+
 newPaeq1.compareDna(newPaeq2); // Returns common bases in percentage between specimen 1 and 2
-//console.log(generateSpecimens(30)); // Uncomment this after commenting out newPaeq1 & newPaeq2 | Returns 30 instance of specimens which has passed 60% survival rate
+
+//console.log(generateSpecimens(30)); // <-- Uncomment after commenting out newPaeq1 & newPaeq2 | Returns 30 instance of specimens which has passed 60% survival rate
+
 console.log(newPaeq1.complimentStrand()); // Returns complement strand 
 console.log(newPaeq2.complimentStrand()); // Returns complement strand
